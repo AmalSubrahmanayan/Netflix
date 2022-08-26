@@ -44,8 +44,7 @@ class VideoListItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: const [
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      padding: EdgeInsets.symmetric(vertical: 10),
                       child: CircleAvatar(
                         radius: 30,
                         backgroundImage: NetworkImage(
