@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'demo',
       theme: ThemeData(
+          appBarTheme: AppBarTheme(backgroundColor: Colors.transparent),
           primarySwatch: Colors.blue,
           backgroundColor: Colors.black,
           scaffoldBackgroundColor: backgroundColor,
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
             bodyText1: TextStyle(color: Colors.white),
             bodyText2: TextStyle(color: Colors.white),
           )),
+      debugShowCheckedModeBanner: false,
       home: ScreenMainPage(),
     );
   }
