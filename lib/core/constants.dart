@@ -29,4 +29,7 @@ TextStyle kHomeTitleText =const TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const imageAppendUrl ='https://image.tmdb.org/t/p/w500';
+
+
 const newAndHotTempImage = "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/3VQj6m0I6gkuRaljmhNZl0XR3by.jpg";
