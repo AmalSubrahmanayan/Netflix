@@ -9,47 +9,49 @@ class BackgroundCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 600,
-              decoration: const BoxDecoration(
-                image: DecorationImage(fit: BoxFit.contain,
-                  image: NetworkImage(
-                    kMainImage,
-                  ),
-                ),
+      children: [
+        Container(
+          width: double.infinity,
+          height: 600,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.contain,
+              image: NetworkImage(
+                kMainImage,
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                     CustomButtonWidget(
-                      title: 'My List',
-                      textSize: 10,
-                      icon: Icons.add,
-                      iconSize: 20,
-                    ),
-                    PlayButton(),
-                     CustomButtonWidget(
-                      icon: Icons.info,
-                      title: 'info',
-                      textSize: 10,
-                      iconSize: 20,
-                    ),
-                  ],
+          ),
+        ),
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomButtonWidget(
+                  title: 'My List',
+                  textSize: 10,
+                  icon: Icons.add,
+                  iconSize: 20,
                 ),
-              ),
+                PlayButton(),
+                CustomButtonWidget(
+                  icon: Icons.info,
+                  title: 'info',
+                  textSize: 10,
+                  iconSize: 20,
+                ),
+              ],
             ),
-          ],
-        );
+          ),
+        ),
+      ],
+    );
   }
+
   TextButton PlayButton() {
     return TextButton.icon(
       onPressed: () {},

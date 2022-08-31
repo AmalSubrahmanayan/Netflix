@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neetflix/application/downloads/downloads_bloc.dart';
+import 'package:neetflix/application/search/search_bloc.dart';
 import 'package:neetflix/core/colors/colors.dart';
 import 'package:neetflix/domain/core/di/injectable.dart';
 import 'package:neetflix/presentation/main_page/screen_main_page.dart';
@@ -19,9 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (ctx) => getIt<DownloadsBloc>(),
-        ),
+        BlocProvider(create: (ctx) => getIt<DownloadsBloc>()),
+        BlocProvider(create: (ctx) => getIt<SearchBloc>()),
       ],
       child: MaterialApp(
         title: 'demo',

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neetflix/core/colors/colors.dart';
 
-
 class VideoWidget extends StatelessWidget {
   const VideoWidget({
     Key? key,

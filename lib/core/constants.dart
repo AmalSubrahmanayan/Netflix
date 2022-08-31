@@ -24,12 +24,12 @@ const kMainImage =
     'https://www.themoviedb.org/t/p/w220_and_h330_face/6EiRUJpuoeQPghrs3YNktfnqOVh.jpg';
 
 // Text Style
-TextStyle kHomeTitleText =const TextStyle(
+TextStyle kHomeTitleText = const TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
 );
 
-const imageAppendUrl ='https://image.tmdb.org/t/p/w500';
+const imageAppendUrl = 'https://image.tmdb.org/t/p/w500';
 
-
-const newAndHotTempImage = "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/3VQj6m0I6gkuRaljmhNZl0XR3by.jpg";
+const newAndHotTempImage =
+    "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/3VQj6m0I6gkuRaljmhNZl0XR3by.jpg";

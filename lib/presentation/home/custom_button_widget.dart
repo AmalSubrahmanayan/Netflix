@@ -5,7 +5,9 @@ class CustomButtonWidget extends StatelessWidget {
   const CustomButtonWidget({
     Key? key,
     required this.icon,
-    required this.title, required int iconSize, required int textSize,
+    required this.title,
+    required int iconSize,
+    required int textSize,
   }) : super(key: key);
   final IconData icon;
   final String title;

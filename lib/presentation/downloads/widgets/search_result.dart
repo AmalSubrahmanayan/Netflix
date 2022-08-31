@@ -47,12 +47,11 @@ class _MainCardState extends State<MainCard> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image:const DecorationImage(
-          image: NetworkImage(ImageURL),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.circular(7)
-      ),
+          image: const DecorationImage(
+            image: NetworkImage(ImageURL),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(7)),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:neetflix/application/search/search_bloc.dart';
 import 'package:neetflix/core/colors/colors.dart';
 import 'package:neetflix/core/constants.dart';
 import 'package:neetflix/presentation/downloads/widgets/search_result.dart';
@@ -10,6 +12,9 @@ class ScreenSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      BlocProvider.of<SearchBloc>(context).add(const Initialize());
+    });
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -31,9 +36,9 @@ class ScreenSearch extends StatelessWidget {
               style: const TextStyle(color: Colors.white),
             ),
             kHeight,
-            
-          //  Expanded(child: const SearchIdleWidget()),
-          const Expanded(child: const SearchResultWidget()),
+
+            Expanded(child: const SearchIdleWidget()),
+            // const Expanded(child: const SearchResultWidget()),
           ],
         ),
       )),
