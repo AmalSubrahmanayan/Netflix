@@ -66,10 +66,36 @@ idle state
 search result state
 */
 
-    on<SearchMovie>((event, emit) {
+    on<SearchMovie>((event, emit) async {
       // call search movie api
-      _searchService.searchMovies(movieQuery: event.movieQuery);
+      emit(const SearchState(
+        searchResultList: [],
+        idleLIst: [],
+        isLoading: true,
+        isError: false,
+      ));
+      final _result =
+          await _searchService.searchMovies(movieQuery: event.movieQuery);
+      final _State = _result.fold(
+        (MainFailure f) {
+          return const SearchState(
+            searchResultList: [],
+            idleLIst: [],
+            isLoading: false,
+            isError: true,
+          );
+        },
+        (SearchRespo r) {
+          return SearchState(
+            searchResultList: r.results,
+            idleLIst: [],
+            isLoading: false,
+            isError: false,
+          );
+        },
+      );
       // show to ui
+      emit(_State);
     });
   }
 }
