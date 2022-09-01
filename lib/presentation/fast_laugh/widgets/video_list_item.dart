@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:neetflix/application/bloc/fast_laugh_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:neetflix/application/fast_laugh/fast_laugh_bloc.dart';
+
 import 'package:neetflix/core/colors/colors.dart';
 import 'package:neetflix/core/constants.dart';
 import 'package:neetflix/domain/core/downloads/models/downloads.dart';
 import 'package:video_player/video_player.dart';
 
-// import 'package:share_plus/share_plus.dart';
+import 'package:share_plus/share_plus.dart';
 
 class VideoListItemInheritedWidget extends InheritedWidget {
   final Widget widget;
@@ -81,30 +83,60 @@ class VideoListItem extends StatelessWidget {
                             : NetworkImage('$imageAppendUrl$posterPath'),
                       ),
                     ),
-                    VideoActionsWidget(
-                      icon: Icons.emoji_emotions,
-                      title: 'LOL',
+                    ValueListenableBuilder(
+                      valueListenable: likedVideosIdsNotifier,
+                      builder: (BuildContext c, Set<int> newLikedListIds,
+                          Widget? _) {
+                        final _index = index;
+                        if (newLikedListIds.contains(_index)) {
+                          return GestureDetector(
+                            onTap: () {
+                              // BlocProvider.of<FastLaughBloc>(context)
+                              //     .add(UnlikeVideo(id: _index));
+                              likedVideosIdsNotifier.value.remove(_index);
+                              likedVideosIdsNotifier.notifyListeners();
+                            },
+                            child: const VideoActionsWidget(
+                              icon: Icons.favorite,
+                              title: 'Liked',
+                            ),
+                          );
+                        }
+                        return GestureDetector(
+                          onTap: () {
+                            // BlocProvider.of<FastLaughBloc>(context)
+                            //     .add(LikeVideo(id: _index));
+                            likedVideosIdsNotifier.value.add(_index);
+                            likedVideosIdsNotifier.notifyListeners();
+                          },
+                          child: const VideoActionsWidget(
+                            icon: Icons.emoji_emotions,
+                            title: 'LOL',
+                          ),
+                        );
+                      },
                     ),
-                    VideoActionsWidget(
+                    const VideoActionsWidget(
                       icon: Icons.add,
                       title: 'MY LIST',
                     ),
                     GestureDetector(
                       onTap: () {
                         final movieName =
-                              VideoListItemInheritedWidget.of(context)
-                                  ?.movieData.posterpath;
-                          if (movieName != null) {
-                            // Share.share(movieName);
-                          }
-                          VideoActionsWidget(icon: Icons.share, title: 'Share');
+                            VideoListItemInheritedWidget.of(context)
+                                ?.movieData
+                                .posterpath;
+                        if (movieName != null) {
+                          Share.share(movieName);
+                        }
+                        VideoActionsWidget(icon: Icons.share, title: 'Share');
                       },
-                      child: VideoActionsWidget(
+                      child: const VideoActionsWidget(
                         icon: Icons.near_me_outlined,
                         title: 'Share',
                       ),
                     ),
-                    VideoActionsWidget(
+                    const VideoActionsWidget(
                       icon: Icons.play_arrow,
                       title: 'Play',
                     ),

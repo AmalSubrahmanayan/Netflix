@@ -7,7 +7,7 @@ import 'package:neetflix/core/colors/colors.dart';
 import 'package:neetflix/domain/core/di/injectable.dart';
 import 'package:neetflix/presentation/main_page/screen_main_page.dart';
 
-import 'application/bloc/fast_laugh_bloc.dart';
+import 'application/fast_laugh/fast_laugh_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

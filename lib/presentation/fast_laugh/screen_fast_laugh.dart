@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neetflix/presentation/fast_laugh/widgets/video_list_item.dart';
 
-import '../../application/bloc/fast_laugh_bloc.dart';
+import '../../application/fast_laugh/fast_laugh_bloc.dart';
 
 class ScreenFastLaugh extends StatelessWidget {
   const ScreenFastLaugh({Key? key}) : super(key: key);
