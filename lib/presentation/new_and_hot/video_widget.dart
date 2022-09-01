@@ -2,37 +2,53 @@ import 'package:flutter/material.dart';
 import 'package:neetflix/core/colors/colors.dart';
 
 class VideoWidget extends StatelessWidget {
-  const VideoWidget({
-    Key? key,
-  }) : super(key: key);
+  final String url;
+  const VideoWidget({Key? key, required this.url}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         SizedBox(
-          width: double.infinity,
           height: 200,
-          child: Image.network(
-            'https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/l99dylTOAMkwKSr54X5ytiEtnLA.jpg',
+          width: double.infinity,
+          child: Image(
+            image: NetworkImage(url),
             fit: BoxFit.cover,
+            loadingBuilder:
+                (BuildContext _, Widget child, ImageChunkEvent? progress) {
+              if (progress == null) {
+                return child;
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                  ),
+                );
+              }
+            },
+            errorBuilder: (BuildContext _, Object a, StackTrace? trace) {
+              return Center(
+                child: Icon(Icons.wifi),
+              );
+            },
           ),
         ),
         Positioned(
           bottom: 10,
           right: 10,
           child: CircleAvatar(
-            radius: 30,
+            radius: 22,
             backgroundColor: Colors.black.withOpacity(0.5),
             child: IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.volume_off,
-                  size: 22,
                   color: kWhiteColor,
+                  size: 20,
                 )),
           ),
-        ),
+        )
       ],
     );
   }

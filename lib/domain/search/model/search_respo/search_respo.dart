@@ -8,7 +8,7 @@ class SearchRespo {
   @JsonKey(name: 'results')
   List<SearchResultData> results;
   SearchRespo({
-    this.results = const[],
+    this.results = const [],
   });
 
   factory SearchRespo.fromJson(Map<String, dynamic> json) {

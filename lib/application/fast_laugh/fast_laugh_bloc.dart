@@ -20,7 +20,6 @@ final dummyVideoUrl = [
 ];
 
 ValueNotifier<Set<int>> likedVideosIdsNotifier = ValueNotifier({});
- 
 
 @injectable
 class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
@@ -29,7 +28,7 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
   ) : super(FastLaughState.initial()) {
     on<Initialize>((event, emit) async {
       // sending loading to ui
-      emit( FastLaughState(
+      emit(FastLaughState(
         videoList: [],
         isLOading: true,
         isError: false,

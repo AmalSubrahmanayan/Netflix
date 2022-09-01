@@ -5,9 +5,16 @@ import 'package:neetflix/core/constants.dart';
 import '../home/custom_button_widget.dart';
 import 'video_widget.dart';
 
-class EveryonesWatchingWidget extends StatelessWidget {
-  const EveryonesWatchingWidget({
+class EveroneWactching extends StatelessWidget {
+  final String posterPath;
+  final String movieName;
+  final String description;
+
+  const EveroneWactching({
     Key? key,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -16,48 +23,45 @@ class EveryonesWatchingWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         kHeight,
-        const Text('Friends',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: kWhiteColor,
-            )),
+        Text(movieName,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         kHeight,
-        const Text(
-          "This hit sitcom followa the merry adventures of six 20-something pals as they navigate the pitfalls of work,life and love in 1990's",
-          style: TextStyle(
-            color: kColorGray,
-          ),
+        Text(
+          description,
+          style: TextStyle(fontSize: 13),
+          maxLines: 4,
+          overflow: TextOverflow.ellipsis,
         ),
         kHeight50,
-        VideoWidget(),
-        kHeight,
+        VideoWidget(
+          url: posterPath,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             CustomButtonWidget(
-              title: 'Share',
               icon: Icons.share,
-              iconSize: 25,
+              title: 'Share',
+              iconSize: 30,
               textSize: 16,
             ),
             kwidth,
             CustomButtonWidget(
-              title: 'My List',
               icon: Icons.add,
-              iconSize: 25,
+              title: 'My List',
+              iconSize: 30,
               textSize: 16,
             ),
             kwidth,
             CustomButtonWidget(
-              title: 'Remind',
               icon: Icons.play_arrow,
-              iconSize: 25,
+              title: 'Play',
+              iconSize: 30,
               textSize: 16,
             ),
-            kwidth
+            kwidth,
           ],
-        ),
+        )
       ],
     );
   }

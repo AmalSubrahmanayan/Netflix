@@ -21,7 +21,7 @@ class SearchImple implements SearchService {
           'query': movieQuery,
         },
       );
-      
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         final result = SearchRespo.fromJson(response.data);
         return Right(result);

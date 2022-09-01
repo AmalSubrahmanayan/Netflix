@@ -91,8 +91,6 @@ class VideoListItem extends StatelessWidget {
                         if (newLikedListIds.contains(_index)) {
                           return GestureDetector(
                             onTap: () {
-                              // BlocProvider.of<FastLaughBloc>(context)
-                              //     .add(UnlikeVideo(id: _index));
                               likedVideosIdsNotifier.value.remove(_index);
                               likedVideosIdsNotifier.notifyListeners();
                             },
@@ -104,8 +102,6 @@ class VideoListItem extends StatelessWidget {
                         }
                         return GestureDetector(
                           onTap: () {
-                            // BlocProvider.of<FastLaughBloc>(context)
-                            //     .add(LikeVideo(id: _index));
                             likedVideosIdsNotifier.value.add(_index);
                             likedVideosIdsNotifier.notifyListeners();
                           },

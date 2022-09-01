@@ -4,7 +4,6 @@ part of 'fast_laugh_bloc.dart';
 class FastLaughState with _$FastLaughState {
   const factory FastLaughState({
     required List<Downloads> videoList,
-    
     required bool isLOading,
     required bool isError,
   }) = _Initial;
@@ -14,5 +13,3 @@ class FastLaughState with _$FastLaughState {
         isError: false,
       );
 }
-
-
