@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:neetflix/core/constants.dart';
 
-class MainCard extends StatelessWidget {
-  const MainCard({
-    Key? key,
+
+class MainCardsWidget extends StatelessWidget {
+  MainCardsWidget({
+
+    Key? key,required this.imageUrl
   }) : super(key: key);
+  String imageUrl;
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-      width: 130,
-      height: 250,
       decoration: BoxDecoration(
-        borderRadius: kRadius10,
-        image: const DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(
-            'https://www.themoviedb.org/t/p/w220_and_h330_face/kPzQtr5LTheO0mBodIeAXHgthYX.jpg',
-          ),
-        ),
-      ),
+          borderRadius: kRadius10,
+          image: DecorationImage(fit: BoxFit.fill,
+              image: NetworkImage(imageUrl
+                  ))),
+      width: 150,
+      height: 250,
     );
   }
 }

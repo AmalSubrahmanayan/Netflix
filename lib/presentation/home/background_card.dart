@@ -5,7 +5,7 @@ import 'package:neetflix/presentation/home/custom_button_widget.dart';
 
 class BackgroundCard extends StatelessWidget {
   const BackgroundCard({Key? key}) : super(key: key);
-
+ 
   @override
   Widget build(BuildContext context) {
     return Stack(

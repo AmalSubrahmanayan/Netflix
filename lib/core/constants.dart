@@ -21,7 +21,7 @@ final BorderRadius kRadius30 = BorderRadius.circular(30);
 //image
 
 const kMainImage =
-    'https://www.themoviedb.org/t/p/w220_and_h330_face/6EiRUJpuoeQPghrs3YNktfnqOVh.jpg';
+    'https://tse3.mm.bing.net/th?id=OIP.ChSxx3rYqsTfJ5nnRFGPEwHaKj&pid=Api&P=0';
 
 // Text Style
 TextStyle kHomeTitleText = const TextStyle(

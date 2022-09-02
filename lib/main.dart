@@ -8,6 +8,7 @@ import 'package:neetflix/domain/core/di/injectable.dart';
 import 'package:neetflix/presentation/main_page/screen_main_page.dart';
 
 import 'application/fast_laugh/fast_laugh_bloc.dart';
+import 'application/home/home_bloc.dart';
 import 'application/hot_and_new/hot_and_new_bloc.dart';
 
 Future<void> main() async {
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (ctx) => getIt<SearchBloc>()),
         BlocProvider(create: (ctx) => getIt<FastLaughBloc>()),
         BlocProvider(create: (ctx) => getIt<HotAndNewBloc>()),
+        BlocProvider(create: (ctx) => getIt<HomeBloc>()),
       ],
       child: MaterialApp(
         title: 'demo',
